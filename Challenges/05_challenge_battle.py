@@ -1,0 +1,52 @@
+﻿
+# Tienes dos listas de números, lista_a y lista_b, ambas de la misma longitud. 
+
+# Cada número en lista_a se "enfrenta" al número en la misma posición en lista_b.
+
+# - Si el número en lista_a es mayor, su valor se suma al siguiente número en lista_a.
+# - Si el número en lista_b es mayor, su valor se suma al siguiente número en lista_b.
+# - Si los dos números son iguales, ambos se eliminan y no afectan al siguiente par.
+
+# Debes simular estos enfrentamientos y devolver el resultado final:
+# - Si al final queda un número en lista_a, devuelve ese número seguido de la letra "a" (por ejemplo, "3a").
+# - Si al final queda un número en lista_b, devuelve ese número seguido de la letra "b" (por ejemplo, "2b").
+# - En caso de empate, devuelve la letra "x".
+
+# lista_a = [2, 4, 2]
+# lista_b = [3, 3, 4]
+
+# resultado = battle(lista_a, lista_b)  # -> "2b"
+
+
+lista_a = [2, 4, 2]
+lista_b = [3, 3, 4]
+
+def battle(lista_a, lista_b): 
+    i = 0
+    while i < len(lista_a) and i < len(lista_b):  # Mientras haya elementos en las dos listas
+        a = lista_a[i]  # Elemento actual de lista_a
+        b = lista_b[i]  # Elemento actual de lista_b
+
+        if a > b:
+            if i + 1 < len(lista_a):  # Si hay un siguiente elemento en lista_a
+                lista_a[i + 1] += a  # Suma a[i] al siguiente
+            lista_b.pop(i)  # Elimina el perdedor (b)
+
+        elif b > a:
+            if i + 1 < len(lista_b):
+                lista_b[i + 1] += b  
+            lista_a.pop(i) 
+
+        else: #si empata
+            lista_a.pop(i)  # Elimina ambos
+            lista_b.pop(i)
+
+    #resultados
+    if len(lista_a) > len(lista_b):
+        return f"{lista_a[-1]}a"
+    elif len(lista_b) > len(lista_a):
+        return f"{lista_b[-1]}b"
+    else:
+        return "x"
+
+print(battle(lista_a.copy(), lista_b.copy()))
