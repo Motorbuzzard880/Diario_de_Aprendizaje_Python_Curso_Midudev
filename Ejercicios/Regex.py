@@ -30,3 +30,30 @@ print(f"La palabra aparece {len(ocurrencias)} veces.")
 
 # resultado = re.search(pattern, texto, re.IGNORECASE) 
 
+
+
+# EJERCICIO 01
+# Encuentra la primera ocurrencia de la palabra "IA" en el siguiente texto
+# e indica en que posición empieza y termina la coincidencia.
+
+text = "Todo el mundo dice que la IA nos va a quitar el trabajo. Pero solo hace falta ver cómo la puede cagar con las Regex para ir con cuidado"
+pattern = "IA"
+
+resultado = re.search(pattern, text)
+if resultado:
+	print(f"Posición de 'IA': inicio= {resultado.start()}, fin= {resultado.end()}")
+else:
+	print("No se encontró el patrón 'IA' en el texto.")
+
+
+
+# -----------------------
+
+### Encontrar todas las coincidencias de un patrón
+# .findall() devuelve una lista con todas las coincidencias
+
+text = "Me gusta Python. Python es lo máximo. Aunque Python no es tan difícil, ojo con Python"
+pattern = "Python"
+
+matches = re.findall(pattern, text)
+print(f"La palabra {pattern} aparece {len(matches)} en el texto")
