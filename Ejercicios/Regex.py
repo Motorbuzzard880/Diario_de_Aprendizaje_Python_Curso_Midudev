@@ -49,7 +49,7 @@ else:
 
 # -----------------------
 
-### Encontrar todas las coincidencias de un patrón
+### EJERCICIO 02 Encontrar todas las coincidencias de un patrón
 # .findall() devuelve una lista con todas las coincidencias
 
 text = "Me gusta Python. Python es lo máximo. Aunque Python no es tan difícil, ojo con Python"
@@ -57,3 +57,26 @@ pattern = "Python"
 
 matches = re.findall(pattern, text)
 print(f"La palabra {pattern} aparece {len(matches)} en el texto")
+
+
+# EJERCICIO 03
+# Encuentra todas las ocurrencias de la palabra "midu" en el siguiente texto e indica en que posición empieza y termina cada coincidencia y cuantas veces se encontró.
+
+text = "Este es el curso de Python de midudev. ¡Suscríbete a midudev si te gusta este contenido! midu"
+pattern = "midu"
+
+ocurrencia = re.finditer(pattern, text)
+
+for match in ocurrencia:
+    print(f'{match.group()} encontrado en {match.start()}-{match.end()}')
+
+
+
+# EJERCICIO 04
+# Encuentra todas las ocurrencias de la palabra "python" en el siguiente texto, sin distinguir entre mayúsculas y minúsculas.
+text = "Este es el curso de Python de midudev. ¡Suscríbete a python si te gusta este contenido! PYTHON"
+
+pattern = "Python"
+
+palabra= re.findall(pattern, text, re.IGNORECASE)
+print(palabra)
