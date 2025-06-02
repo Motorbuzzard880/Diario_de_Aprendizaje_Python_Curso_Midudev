@@ -80,3 +80,21 @@ pattern = "Python"
 
 palabra= re.findall(pattern, text, re.IGNORECASE)
 print(palabra)
+
+
+
+# EJERCICIO 05:
+# Tenemos una lista de archivos, necesitamos saber los nombres de los ficheros con extension .txt:
+
+text = "file1.txt file2.pdf midu-of.webp secret.txt"
+pattern = r"\b\w+\.txt\b"
+
+# r"\b\w+\.txt\b" significa:
+# \b: Límite de palabra (asegura que estamos al inicio de un nombre de archivo)
+# \w+: Uno o más caracteres de palabra (letras, números o guiones bajos)
+# \.txt: La extensión .txt (el punto se escapa con )
+# \b: Otro límite de palabra (asegura que .txt está al final)
+
+matches = re.finditer(pattern, text)
+for match in matches:
+    print(match.group())
