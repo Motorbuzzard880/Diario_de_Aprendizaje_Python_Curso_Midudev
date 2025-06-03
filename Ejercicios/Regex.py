@@ -98,3 +98,20 @@ pattern = r"\b\w+\.txt\b"
 matches = re.finditer(pattern, text)
 for match in matches:
     print(match.group())
+
+
+# Ejercicio 06:
+# ¿Cuantas palabras tienen de 0 a más "a" y después una b?
+
+texto = "b ab aab aaab zyb abb ba a abc bb"
+palabras_cumplen = re.findall(r'\ba*b\b', texto)
+cantidad = len(palabras_cumplen)
+print("Palabras que cumplen el patrón:", palabras_cumplen)
+print("Total de palabras validas", cantidad)
+
+
+# Ejercicio 07: Haz opcional que aparezca un +34 en el siguiente texto
+phone = "+34 688999999"
+pattern = r'^((\+|00)34)([ -]?\d{6,9})$'
+matches = re.findall(pattern, phone)
+print(matches)
